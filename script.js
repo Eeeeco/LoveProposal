@@ -71,6 +71,7 @@ class Paper {
 
         // Touch start event for mobile
         paper.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent default touch actions (scrolling, zooming)
             if (this.holdingPaper) return;
             this.holdingPaper = true;
             paper.style.zIndex = highestZ;
@@ -85,6 +86,7 @@ class Paper {
 
         // Touch move event for mobile
         paper.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent default touch actions (scrolling, zooming)
             if (!this.rotating) {
                 const touch = e.touches[0];
                 this.mouseX = touch.clientX;
